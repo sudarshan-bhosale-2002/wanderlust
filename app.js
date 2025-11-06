@@ -22,7 +22,6 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 
-// const MONGO_URL = `mongodb://127.0.0.1:27017/wanderlust`;
 const dbUrl = process.env.ATLASDB_URL;
 
 main()
@@ -44,7 +43,6 @@ app.use(methodOverride("_method"));
 app.engine("ejs", ejsMate);
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(cookieParser("signedCookie"));
-
 const store = MongoStore.create({
   mongoUrl: dbUrl,
   crypto: {
